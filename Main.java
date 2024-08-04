@@ -9,10 +9,11 @@ class Main {
 
         final int bound = 100;
 
+        final int maxScore = 100;
         int score = 0;
 
-        final int totalAttempt = 15;
-        int attempt = totalAttempt;
+        final int totalAttempt = 10;
+        int attempt = 0;
 
         int randomInt = random.nextInt(bound);
 
@@ -27,7 +28,7 @@ class Main {
                 System.out.println("Your guess is too low");
             } else {
                 System.out.println("That's a right guess");
-                score += 1;
+                score += attempt;
 
                 System.out.println("Want to play again? (Y/N)");
                 String answer = scanner.next();
@@ -41,10 +42,11 @@ class Main {
                 }
             }
 
-            attempt--;
-        } while(attempt > 0);
+            attempt++;
+        } while(attempt != totalAttempt);
 
-        System.out.println("your score is: " + score);
+        // Score based on total attempts taken by user to guess the number
+        System.out.println("Your score is " + (maxScore - score));
 
     }
 }
